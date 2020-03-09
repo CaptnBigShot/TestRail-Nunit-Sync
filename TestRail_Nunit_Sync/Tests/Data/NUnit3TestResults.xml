@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="608" result="Failed" total="494" passed="476" failed="18" inconclusive="0" skipped="0" asserts="389" engine-version="3.10.0.0" clr-version="4.0.30319.42000" start-time="2020-03-02 17:21:06Z" end-time="2020-03-02 21:07:21Z" duration="13574.796484">
+  <command-line><![CDATA[nunit3-console.exe  C:\Users\path\Project.dll --where "cat == automated" --workers=3 --result="C:\Users\path\NUnitResults.xml"]]></command-line>
+  <filter>
+    <cat>automated</cat>
+  </filter>
+  <test-suite type="Assembly" id="0-1719" name="Project.dll" fullname="C:\Users\path\Project.dll" runstate="Runnable" testcasecount="608" result="Failed" site="Child" start-time="2020-03-02 17:21:07Z" end-time="2020-03-02 21:07:21Z" duration="13573.995958" total="494" passed="476" failed="18" warnings="0" inconclusive="0" skipped="0" asserts="389">
+    <environment framework-version="3.12.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.17134.0" platform="Win32NT" cwd="C:\Users\path" machine-name="USERMACHINE" user="test.user" user-domain="test_domain" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="C:\Users\path" />
+      <setting name="NumberOfTestWorkers" value="3" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.5.2" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+    </settings>
+    <properties>
+      <property name="ParallelScope" value="Fixtures" />
+      <property name="LevelOfParallelism" value="4" />
+      <property name="_PID" value="17128" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="TestSuite" id="0-1720" name="Specs" fullname="Specs" runstate="Runnable" testcasecount="608" result="Failed" site="Child" start-time="2020-03-02 17:21:07Z" end-time="2020-03-02 21:07:21Z" duration="13573.970403" total="494" passed="476" failed="18" warnings="0" inconclusive="0" skipped="0" asserts="389">
+      <properties />
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="0-1721" name="Features" fullname="Specs.Features" runstate="Runnable" testcasecount="476" result="Failed" site="Child" start-time="2020-03-02 17:21:07Z" end-time="2020-03-02 20:04:18Z" duration="9790.586666" total="368" passed="356" failed="12" warnings="0" inconclusive="0" skipped="0" asserts="389">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        
+        <test-suite type="TestSuite" id="0-1728" name="Account" fullname="Specs.Features.Account" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-03-02 17:21:07Z" end-time="2020-03-02 17:38:16Z" duration="1028.910885" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="5">
+          <properties />
+          <test-suite type="TestFixture" id="0-1553" name="LoginFeature" fullname="Specs.Features.Account.LoginFeature" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-03-02 17:21:07Z" end-time="2020-03-02 17:38:16Z" duration="1028.910828" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="5">
+            <properties>
+              <property name="Description" value="Login" />
+              <property name="Category" value="browser" />
+            </properties>
+            <test-suite type="ParameterizedMethod" id="0-1559" name="LogInWithInvalidCredentials" fullname="Specs.Features.Account.LoginFeature.LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" testcasecount="4" result="Passed" start-time="2020-03-02 17:37:42Z" end-time="2020-03-02 17:38:09Z" duration="26.397749" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
+              <properties>
+                <property name="Description" value="Log in with invalid credentials" />
+                <property name="Category" value="regression" />
+                <property name="Category" value="automated" />
+              </properties>
+              <test-case id="0-1555" name="LogInWithInvalidCredentials(&quot;Blank UserName&quot;,&quot;&quot;,&quot;password12&quot;,&quot;The User Name field is required.&quot;,null)" fullname="Specs.Features.Account.LoginFeature.LogInWithInvalidCredentials(&quot;Blank UserName&quot;,&quot;&quot;,&quot;password12&quot;,&quot;The User Name field is required.&quot;,null)" methodname="LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="1608475748" result="Passed" start-time="2020-03-02 17:37:42Z" end-time="2020-03-02 17:37:50Z" duration="7.567879" asserts="1">
+                <properties />
+              </test-case>
+              <test-case id="0-1556" name="LogInWithInvalidCredentials(&quot;Blank Password&quot;,&quot;test.user&quot;,&quot;&quot;,&quot;The Password field is required.&quot;,null)" fullname="Specs.Features.Account.LoginFeature.LogInWithInvalidCredentials(&quot;Blank Password&quot;,&quot;test.user&quot;,&quot;&quot;,&quot;The Password field is required.&quot;,null)" methodname="LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="1999851209" result="Passed" start-time="2020-03-02 17:37:50Z" end-time="2020-03-02 17:37:56Z" duration="6.300555" asserts="1">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-case id="0-1554" name="LogInWithValidCredentials" fullname="Specs.Features.Account.LoginFeature.LogInWithValidCredentials" methodname="LogInWithValidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="36964750" result="Passed" start-time="2020-03-02 17:38:09Z" end-time="2020-03-02 17:38:16Z" duration="7.103904" asserts="1">
+              <properties>
+                <property name="Description" value="Log in with valid credentials" />
+                <property name="Category" value="smoke" />
+                <property name="Category" value="automated" />
+              </properties>
+            </test-case>
+          </test-suite>
+        </test-suite>
+        
+        <test-suite type="TestSuite" id="0-1727" name="Agent" fullname="Specs.Features.Agent" runstate="Runnable" testcasecount="90" result="Failed" site="Child" start-time="2020-03-02 17:21:07Z" end-time="2020-03-02 17:59:02Z" duration="2274.780627" total="71" passed="70" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="384">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="0-1478" name="AgentEFTInfoFeature" fullname="Specs.Features.Agent.AgentEFTInfoFeature" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" testcasecount="4" result="Passed" start-time="2020-03-02 17:40:00Z" end-time="2020-03-02 17:42:49Z" duration="168.514217" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+            <properties>
+              <property name="Description" value="Agent EFT Info" />
+              <property name="Category" value="browser" />
+            </properties>
+            <test-case id="0-1481" name="CancelAddingNewAgentEFTInfo" fullname="Specs.Features.Agent.AgentEFTInfoFeature.CancelAddingNewAgentEFTInfo" methodname="CancelAddingNewAgentEFTInfo" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" seed="1726325954" result="Passed" start-time="2020-03-02 17:40:00Z" end-time="2020-03-02 17:40:42Z" duration="42.278604" asserts="0">
+              <properties>
+                <property name="Description" value="Cancel adding new agent EFT info" />
+                <property name="Category" value="automated" />
+              </properties>
+            </test-case>
+            <test-case id="0-1480" name="EditAgentEFTInfo" fullname="Specs.Features.Agent.AgentEFTInfoFeature.EditAgentEFTInfo" methodname="EditAgentEFTInfo" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" seed="805207796" result="Passed" start-time="2020-03-02 17:40:42Z" end-time="2020-03-02 17:41:26Z" duration="43.204554" asserts="0">
+              <properties>
+                <property name="Description" value="Edit agent EFT info" />
+                <property name="Category" value="regression" />
+                <property name="Category" value="automated-skip" />
+              </properties>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+
+      <test-suite type="TestSuite" id="0-1730" name="ServiceTests" fullname="Specs.ServiceTests" runstate="Runnable" testcasecount="126" result="Failed" site="Child" start-time="2020-03-02 17:21:07Z" end-time="2020-03-02 21:07:21Z" duration="13573.969924" total="126" passed="120" failed="6" warnings="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+
+        <test-suite type="TestSuite" id="0-1735" name="Extracts" fullname="Specs.ServiceTests.Extracts" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2020-03-02 17:21:07Z" end-time="2020-03-02 20:41:15Z" duration="12008.357697" total="1" passed="0" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+
+          <test-suite type="TestFixture" id="0-1712" name="EzbConnectorTests" fullname="Specs.ServiceTests.Extracts.EzbConnectorTests" classname="Specs.ServiceTests.Extracts.EzbConnectorTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2020-03-02 20:04:18Z" end-time="2020-03-02 20:41:15Z" duration="2217.759033" total="1" passed="0" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="0">
+            <properties>
+              <property name="Description" value="EZB Connector" />
+              <property name="Category" value="app-server" />
+              <property name="Category" value="ezb" />
+              <property name="Category" value="writes-to-database" />
+              <property name="Category" value="shared-test-group-TEST0001" />
+              <property name="ParallelScope" value="None" />
+            </properties>
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="0-1713" name="GenerateExtractsWithVariousEligibilityScenarios" fullname="Specs.ServiceTests.Extracts.EzbConnectorTests.GenerateExtractsWithVariousEligibilityScenarios" methodname="GenerateExtractsWithVariousEligibilityScenarios" classname="Specs.ServiceTests.Extracts.EzbConnectorTests" runstate="Runnable" seed="180283899" result="Failed" start-time="2020-03-02 20:04:18Z" end-time="2020-03-02 20:41:15Z" duration="2217.758296" asserts="0">
+              <properties>
+                <property name="Category" value="regression" />
+                <property name="Category" value="automated" />
+                <property name="Description" value="Generate extracts with various eligibility scenarios" />
+              </properties>
+              <failure>
+                <message>
+                  <![CDATA[Expected something but got something else.]]>
+                </message>
+                <stack-trace>
+                  <![CDATA[stack trace here]]>
+                </stack-trace>
+              </failure>
+              <attachments>
+                <attachment>
+                  <filePath>C:\Windows\Web\Wallpaper\Theme1\img1.jpg</filePath>
+                  <description><![CDATA[Screenshot]]></description>
+                </attachment>
+              </attachments>
+            </test-case>
+          </test-suite>
+
+        </test-suite>
+        
+      </test-suite>
+
+    </test-suite>
+  </test-suite>
+</test-run>

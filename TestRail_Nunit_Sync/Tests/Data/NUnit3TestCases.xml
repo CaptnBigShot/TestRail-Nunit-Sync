@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="506">
+  <test-suite type="Assembly" id="0-1606" name="Specs.dll" fullname="D:\tests\utopia\DEV\Specs.dll" runstate="Runnable" testcasecount="506">
+    <properties>
+      <property name="ParallelScope" value="Fixtures" />
+      <property name="LevelOfParallelism" value="4" />
+      <property name="_PID" value="2528" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+
+    <test-suite type="TestSuite" id="0-1607" name="Specs" fullname="Specs" runstate="Runnable" testcasecount="506">
+      <test-suite type="TestSuite" id="0-1608" name="Features" fullname="Specs.Features" runstate="Runnable" testcasecount="375">
+
+        <test-suite type="TestSuite" id="0-1614" name="Account" fullname="Specs.Features.Account" runstate="Runnable" testcasecount="5">
+          <test-suite type="TestFixture" id="0-1441" name="LoginFeature" fullname="Specs.Features.Account.LoginFeature" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" testcasecount="5">
+            <properties>
+              <property name="Description" value="Login" />
+              <property name="Category" value="browser" />
+            </properties>
+            <test-suite type="ParameterizedMethod" id="0-1447" name="LogInWithInvalidCredentials" fullname="Specs.Features.Account.LoginFeature.LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" testcasecount="4">
+              <properties>
+                <property name="Description" value="Log in with invalid credentials" />
+                <property name="Category" value="regression" />
+                <property name="Category" value="automated" />
+              </properties>
+              <test-case id="0-1443" name="LogInWithInvalidCredentials(&quot;Blank UserName&quot;,&quot;&quot;,&quot;password12&quot;,&quot;The User Name field is required.&quot;,null)" fullname="Specs.Features.Account.LoginFeature.LogInWithInvalidCredentials(&quot;Blank UserName&quot;,&quot;&quot;,&quot;password12&quot;,&quot;The User Name field is required.&quot;,null)" methodname="LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="933880832" />
+              <test-case id="0-1444" name="LogInWithInvalidCredentials(&quot;Blank Password&quot;,&quot;test.user&quot;,&quot;&quot;,&quot;The Password field is required.&quot;,null)" fullname="Specs.Features.Account.LoginFeature.LogInWithInvalidCredentials(&quot;Blank Password&quot;,&quot;test.user&quot;,&quot;&quot;,&quot;The Password field is required.&quot;,null)" methodname="LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="453057141" />
+            </test-suite>
+            <test-case id="0-1442" name="LogInWithValidCredentials" fullname="Specs.Features.Account.LoginFeature.LogInWithValidCredentials" methodname="LogInWithValidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="1587683849">
+              <properties>
+                <property name="Description" value="Log in with valid credentials" />
+                <property name="Category" value="smoke" />
+                <property name="Category" value="automated" />
+              </properties>
+            </test-case>
+          </test-suite>
+        </test-suite>
+
+        <test-suite type="TestSuite" id="0-1613" name="Agent" fullname="Specs.Features.Agent" runstate="Runnable" testcasecount="90">
+          <test-suite type="TestFixture" id="0-1366" name="AgentEFTInfoFeature" fullname="Specs.Features.Agent.AgentEFTInfoFeature" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" testcasecount="4">
+            <properties>
+              <property name="Description" value="Agent EFT Info" />
+              <property name="Category" value="browser" />
+            </properties>
+            <test-case id="0-1369" name="CancelAddingNewAgentEFTInfo" fullname="Specs.Features.Agent.AgentEFTInfoFeature.CancelAddingNewAgentEFTInfo" methodname="CancelAddingNewAgentEFTInfo" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" seed="1245563928">
+              <properties>
+                <property name="Description" value="Cancel adding new agent EFT info" />
+                <property name="Category" value="automated" />
+              </properties>
+            </test-case>
+            <test-case id="0-1368" name="EditAgentEFTInfo" fullname="Specs.Features.Agent.AgentEFTInfoFeature.EditAgentEFTInfo" methodname="EditAgentEFTInfo" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" seed="999884957">
+              <properties>
+                <property name="Description" value="Edit agent EFT info" />
+                <property name="Category" value="regression" />
+                <property name="Category" value="automated-skip" />
+              </properties>
+            </test-case>
+          </test-suite>
+        </test-suite>
+
+      </test-suite>
+    </test-suite>
+
+    <test-suite type="TestSuite" id="0-1616" name="ServiceTests" fullname="Specs.ServiceTests" runstate="Runnable" testcasecount="126">
+      
+      <test-suite type="TestSuite" id="0-1621" name="Extracts" fullname="Specs.ServiceTests.Extracts" runstate="Runnable" testcasecount="1">
+        <test-suite type="TestFixture" id="0-1599" name="EzbConnectorTests" fullname="Specs.ServiceTests.Extracts.EzbConnectorTests" classname="Specs.ServiceTests.Extracts.EzbConnectorTests" runstate="Runnable" testcasecount="1">
+          <properties>
+            <property name="Description" value="EZB Connector" />
+            <property name="Category" value="app-server" />
+            <property name="Category" value="ezb" />
+            <property name="Category" value="writes-to-database" />
+            <property name="Category" value="shared-test-group-TEST0001" />
+            <property name="ParallelScope" value="None" />
+          </properties>
+          <test-case id="0-1600" name="GenerateExtractsWithVariousEligibilityScenarios" fullname="Specs.ServiceTests.Extracts.EzbConnectorTests.GenerateExtractsWithVariousEligibilityScenarios" methodname="GenerateExtractsWithVariousEligibilityScenarios" classname="Specs.ServiceTests.Extracts.EzbConnectorTests" runstate="Runnable" seed="1875173821">
+            <properties>
+              <property name="Category" value="regression" />
+              <property name="Category" value="automated" />
+              <property name="Description" value="Generate extracts with various eligibility scenarios" />
+            </properties>
+          </test-case>
+        </test-suite>
+      </test-suite>
+
+    </test-suite>
+
+  </test-suite>
+</test-run>
