@@ -21,9 +21,7 @@ namespace TestRail_Nunit_Sync.Controllers
             foreach (XmlNode testFixtureNode in testFixtureNodes)
             {
                 // Get test fixture name
-                var fixtureDesc = testFixtureNode.SelectSingleNode("./properties/property[@name='Description']")?.Attributes["value"]?.InnerText;
                 var fixtureName = testFixtureNode.Attributes["name"]?.InnerText;
-                var testFixtureName = fixtureDesc ?? fixtureName;
                 var fixtureFullName = testFixtureNode.Attributes["fullname"]?.InnerText.Replace($".{fixtureName}", "");
 
                 // Define test categories
@@ -78,7 +76,7 @@ namespace TestRail_Nunit_Sync.Controllers
                     // Create model and add to list
                     var testCase = new TestCaseModel
                     {
-                        FixtureName = testFixtureName,
+                        FixtureName = fixtureName,
                         Title = testCaseName,
                         IsAutomated = tcCategories.Contains("automated"),
                         Tags = string.Join(",", tcCategories),
@@ -158,7 +156,7 @@ namespace TestRail_Nunit_Sync.Controllers
                         // Create model and add to list
                         var testCaseParameterized = new TestCaseModel
                         {
-                            FixtureName = testFixtureName,
+                            FixtureName = fixtureName,
                             Title = testCaseParameterizedName,
                             IsAutomated = tcpCategories.Contains("automated"),
                             Tags = string.Join(",", tcpCategories),

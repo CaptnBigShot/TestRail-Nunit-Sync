@@ -59,8 +59,7 @@ namespace TestRail_Nunit_Sync.Tests
                 {
                     FixtureFullName = "Specs.Features.Account",
                     FixtureName = "Login",
-                    Title =
-                        "Log in with invalid credentials (\"Blank UserName\",\"\",\"password12\",\"The User Name field is required.\")",
+                    Title = "Log in with invalid credentials (Blank UserName,,password12,The User Name field is required.)",
                     Tags = "browser,regression,automated",
                     IsAutomated = true,
                     TypeId = 1,
@@ -75,7 +74,7 @@ namespace TestRail_Nunit_Sync.Tests
                     FixtureFullName = "Specs.Features.Account",
                     FixtureName = "Login",
                     Title =
-                        "Log in with invalid credentials (\"Blank Password\",\"test.user\",\"\",\"The Password field is required.\")",
+                        "Log in with invalid credentials (Blank Password,test.user,,The Password field is required.)",
                     Tags = "browser,regression,automated",
                     IsAutomated = true,
                     TypeId = 1,
@@ -116,7 +115,7 @@ namespace TestRail_Nunit_Sync.Tests
                 new TestCaseModel
                 {
                     FixtureFullName = "Specs.ServiceTests.Extracts",
-                    FixtureName = "EZB Connector",
+                    FixtureName = "EzbConnectorTests",
                     Title = "Generate extracts with various eligibility scenarios",
                     Tags = "app-server,ezb,writes-to-database,shared-test-group-TEST0001,regression,automated",
                     IsAutomated = true,
@@ -174,7 +173,7 @@ namespace TestRail_Nunit_Sync.Tests
             var nunitTestCaseResult = _nunit3TestResults[idx];
             var expectedTestCaseResult = _testCases[idx];
 
-            nunitTestCaseResult.Should().BeEquivalentTo(expectedTestCaseResult);
+            nunitTestCaseResult.TestResult.Should().BeEquivalentTo(expectedTestCaseResult.TestResult);
         }
 
         [Test]
