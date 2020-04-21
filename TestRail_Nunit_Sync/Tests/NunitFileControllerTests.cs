@@ -130,6 +130,10 @@ namespace TestRail_Nunit_Sync.Tests
                             new TestResultAttachmentModel
                             {
                                 FilePath = @"C:\Windows\Web\Wallpaper\Theme1\img1.jpg", Description = "Screenshot"
+                            },
+                            new TestResultAttachmentModel
+                            {
+                                FilePath = @"C:\Windows\Web\Wallpaper\Theme1\img2.jpg"
                             }
                         },
                     },

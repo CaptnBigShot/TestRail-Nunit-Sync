@@ -135,6 +135,9 @@
                   <filePath>C:\Windows\Web\Wallpaper\Theme1\img1.jpg</filePath>
                   <description><![CDATA[Screenshot]]></description>
                 </attachment>
+                <attachment>
+                  <filePath>C:\Windows\Web\Wallpaper\Theme1\img2.jpg</filePath>
+                </attachment>
               </attachments>
             </test-case>
           </test-suite>

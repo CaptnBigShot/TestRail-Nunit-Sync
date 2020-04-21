@@ -68,7 +68,7 @@ namespace TestRail_Nunit_Sync.Controllers
                             testCaseResultAttachments.Add(new TestResultAttachmentModel
                             {
                                 FilePath = n.SelectSingleNode("./filePath").InnerText,
-                                Description = n.SelectSingleNode("./description").InnerText,
+                                Description = n.SelectSingleNode("./description")?.InnerText,
                             });
                         }
                     }
@@ -148,7 +148,7 @@ namespace TestRail_Nunit_Sync.Controllers
                                 testCaseParameterizedResultAttachments.Add(new TestResultAttachmentModel
                                 {
                                     FilePath = n.SelectSingleNode("./filePath").InnerText,
-                                    Description = n.SelectSingleNode("./description").InnerText,
+                                    Description = n.SelectSingleNode("./description")?.InnerText,
                                 });
                             }
                         }
