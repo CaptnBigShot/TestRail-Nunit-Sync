@@ -12,9 +12,9 @@
       <test-suite type="TestSuite" id="0-1608" name="Features" fullname="Specs.Features" runstate="Runnable" testcasecount="375">
 
         <test-suite type="TestSuite" id="0-2130" name="Account" fullname="Specs.Features.Account" runstate="Runnable" testcasecount="5">
-          <test-suite type="TestFixture" id="0-1924" name="Login" fullname="Specs.Features.Account.Login" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" testcasecount="5">
+          <test-suite type="TestFixture" id="0-1924" name="LoginFeature" fullname="Specs.Features.Account.LoginFeature" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" testcasecount="5">
             <properties>
-              <property name="Description" value="&#x9;In order to access the web app &#xD;&#xA;&#x9;As a KBA user&#xD;&#xA;&#x9;I want to log in on the login page" />
+              <property name="Description" value="Login" />
               <property name="Category" value="browser" />
             </properties>
             <test-suite type="ParameterizedMethod" id="0-1926" name="LogInWithValidCredentials" fullname="Specs.Features.Account.LoginFeature.LogInWithValidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" testcasecount="1">
@@ -38,9 +38,9 @@
         </test-suite>
 
         <test-suite type="TestSuite" id="0-1613" name="Agent" fullname="Specs.Features.Agent" runstate="Runnable" testcasecount="90">
-          <test-suite type="TestFixture" id="0-1819" name="Agent EFT Info" fullname="Specs.Features.Agent.Agent EFT Info" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" testcasecount="4">
+          <test-suite type="TestFixture" id="0-1819" name="AgentEFTInfoFeature" fullname="Specs.Features.Agent.AgentEFTInfoFeature" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" testcasecount="4">
             <properties>
-              <property name="Description" value="&#x9;Handle maintaining agent's EFT Info as an Agent Licensing user" />
+              <property name="Description" value="Agent EFT Info" />
               <property name="Category" value="browser" />
             </properties>
             <test-suite type="ParameterizedMethod" id="0-1825" name="CancelAddingNewAgentEFTInfo" fullname="Specs.Features.Agent.AgentEFTInfoFeature.CancelAddingNewAgentEFTInfo" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" testcasecount="1">

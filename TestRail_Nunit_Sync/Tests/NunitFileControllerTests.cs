@@ -73,8 +73,7 @@ namespace TestRail_Nunit_Sync.Tests
                 {
                     FixtureFullName = "Specs.Features.Account",
                     FixtureName = "Login",
-                    Title =
-                        "Log in with invalid credentials (Blank Password,test.user,,The Password field is required.)",
+                    Title = "Log in with invalid credentials (Blank Password,test.user,,The Password field is required.)",
                     Tags = "browser,regression,automated",
                     IsAutomated = true,
                     TypeId = 1,
@@ -115,7 +114,7 @@ namespace TestRail_Nunit_Sync.Tests
                 new TestCaseModel
                 {
                     FixtureFullName = "Specs.ServiceTests.Extracts",
-                    FixtureName = "EzbConnectorTests",
+                    FixtureName = "EZB Connector",
                     Title = "Generate extracts with various eligibility scenarios",
                     Tags = "app-server,ezb,writes-to-database,shared-test-group-TEST0001,regression,automated",
                     IsAutomated = true,
