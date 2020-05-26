@@ -45,7 +45,7 @@ namespace TestRail_Nunit_Sync.Tests
                 {
                     FixtureFullName = "Specs.Features.Account",
                     FixtureName = "Login",
-                    Title = "Log in with valid credentials",
+                    Title = "LogInWithValidCredentials",
                     Tags = "browser,smoke,automated",
                     IsAutomated = true,
                     TypeId = 3,
@@ -59,7 +59,7 @@ namespace TestRail_Nunit_Sync.Tests
                 {
                     FixtureFullName = "Specs.Features.Account",
                     FixtureName = "Login",
-                    Title = "Log in with invalid credentials (Blank UserName,,password12,The User Name field is required.)",
+                    Title = "LogInWithInvalidCredentials(\"Blank UserName\",\"\",\"password12\",\"The User Name field is required.\",null)",
                     Tags = "browser,regression,automated",
                     IsAutomated = true,
                     TypeId = 1,
@@ -73,7 +73,7 @@ namespace TestRail_Nunit_Sync.Tests
                 {
                     FixtureFullName = "Specs.Features.Account",
                     FixtureName = "Login",
-                    Title = "Log in with invalid credentials (Blank Password,test.user,,The Password field is required.)",
+                    Title = "LogInWithInvalidCredentials(\"Blank Password\",\"test.user\",\"\",\"The Password field is required.\",null)",
                     Tags = "browser,regression,automated",
                     IsAutomated = true,
                     TypeId = 1,
@@ -87,7 +87,7 @@ namespace TestRail_Nunit_Sync.Tests
                 {
                     FixtureFullName = "Specs.Features.Agent",
                     FixtureName = "Agent EFT Info",
-                    Title = "Cancel adding new agent EFT info",
+                    Title = "CancelAddingNewAgentEFTInfo",
                     Tags = "browser,automated",
                     IsAutomated = true,
                     TypeId = 2,
@@ -101,7 +101,7 @@ namespace TestRail_Nunit_Sync.Tests
                 {
                     FixtureFullName = "Specs.Features.Agent",
                     FixtureName = "Agent EFT Info",
-                    Title = "Edit agent EFT info",
+                    Title = "EditAgentEFTInfo",
                     Tags = "browser,regression,automated-skip",
                     IsAutomated = false,
                     TypeId = 1,
@@ -115,7 +115,7 @@ namespace TestRail_Nunit_Sync.Tests
                 {
                     FixtureFullName = "Specs.ServiceTests.Extracts",
                     FixtureName = "EZB Connector",
-                    Title = "Generate extracts with various eligibility scenarios",
+                    Title = "GenerateExtractsWithVariousEligibilityScenarios",
                     Tags = "app-server,ezb,writes-to-database,shared-test-group-TEST0001,regression,automated",
                     IsAutomated = true,
                     TypeId = 1,

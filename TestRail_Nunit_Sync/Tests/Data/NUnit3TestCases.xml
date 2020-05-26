@@ -23,7 +23,7 @@
                 <property name="Category" value="smoke" />
                 <property name="Category" value="automated" />
               </properties>
-              <test-case id="0-1925" name="Log in with valid credentials" fullname="Specs.Features.Account.Login.Log in with valid credentials" methodname="LogInWithValidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="1109804512" />
+              <test-case id="0-1925" name="LogInWithValidCredentials" fullname="Specs.Features.Account.Login.Log in with valid credentials" methodname="LogInWithValidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="1109804512" />
             </test-suite>
             <test-suite type="ParameterizedMethod" id="0-1931" name="LogInWithInvalidCredentials" fullname="Specs.Features.Account.LoginFeature.LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" testcasecount="4">
               <properties>
@@ -31,8 +31,8 @@
                 <property name="Category" value="regression" />
                 <property name="Category" value="automated" />
               </properties>
-              <test-case id="0-1927" name="Log in with invalid credentials(Blank UserName,,password12,The User Name field is required.)" fullname="Specs.Features.Account.Login.Log in with invalid credentials(Blank UserName,,password12,The User Name field is required.)" methodname="LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="2063205168" />
-              <test-case id="0-1928" name="Log in with invalid credentials(Blank Password,test.user,,The Password field is required.)" fullname="Specs.Features.Account.Login.Log in with invalid credentials(Blank Password,test.user,,The Password field is required.)" methodname="LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="2090615448" />
+              <test-case id="0-1927" name="LogInWithInvalidCredentials(&quot;Blank UserName&quot;,&quot;&quot;,&quot;password12&quot;,&quot;The User Name field is required.&quot;,null)" fullname="Specs.Features.Account.Login.Log in with invalid credentials(Blank UserName,,password12,The User Name field is required.)" methodname="LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="2063205168" />
+              <test-case id="0-1928" name="LogInWithInvalidCredentials(&quot;Blank Password&quot;,&quot;test.user&quot;,&quot;&quot;,&quot;The Password field is required.&quot;,null)" fullname="Specs.Features.Account.Login.Log in with invalid credentials(Blank Password,test.user,,The Password field is required.)" methodname="LogInWithInvalidCredentials" classname="Specs.Features.Account.LoginFeature" runstate="Runnable" seed="2090615448" />
             </test-suite>
           </test-suite>
         </test-suite>
@@ -48,7 +48,7 @@
                 <property name="Description" value="Cancel adding new agent EFT info" />
                 <property name="Category" value="automated" />
               </properties>
-              <test-case id="0-1824" name="Cancel adding new agent EFT info" fullname="Specs.Features.Agent.Agent EFT Info.Cancel adding new agent EFT info" methodname="CancelAddingNewAgentEFTInfo" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" seed="1315880076" />
+              <test-case id="0-1824" name="CancelAddingNewAgentEFTInfo" fullname="Specs.Features.Agent.Agent EFT Info.Cancel adding new agent EFT info" methodname="CancelAddingNewAgentEFTInfo" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" seed="1315880076" />
             </test-suite>
             <test-suite type="ParameterizedMethod" id="0-1823" name="EditAgentEFTInfo" fullname="Specs.Features.Agent.AgentEFTInfoFeature.EditAgentEFTInfo" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" testcasecount="1">
               <properties>
@@ -56,7 +56,7 @@
                 <property name="Category" value="regression" />
                 <property name="Category" value="automated-skip" />
               </properties>
-              <test-case id="0-1822" name="Edit agent EFT info" fullname="Specs.Features.Agent.Agent EFT Info.Edit agent EFT info" methodname="EditAgentEFTInfo" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" seed="419241091" />
+              <test-case id="0-1822" name="EditAgentEFTInfo" fullname="Specs.Features.Agent.Agent EFT Info.Edit agent EFT info" methodname="EditAgentEFTInfo" classname="Specs.Features.Agent.AgentEFTInfoFeature" runstate="Runnable" seed="419241091" />
             </test-suite>
           </test-suite>
         </test-suite>

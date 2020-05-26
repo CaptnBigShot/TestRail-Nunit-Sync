@@ -37,9 +37,8 @@ namespace TestRail_Nunit_Sync.Controllers
                 foreach (XmlNode testCaseNode in testCaseNodes)
                 {
                     // Get test case name
-                    var tcDesc = testCaseNode.SelectSingleNode("./properties/property[@name='Description']")?.Attributes["value"]?.InnerText;
                     var tcName = testCaseNode.Attributes["name"]?.InnerText;
-                    var testCaseName = tcDesc ?? tcName;
+                    var testCaseName = tcName;
 
                     // Get categories
                     var tcCategories = new List<string>();
@@ -106,27 +105,11 @@ namespace TestRail_Nunit_Sync.Controllers
                         tcpCategories.Add(tcPropertyNode?.Attributes["value"]?.InnerText);
 
                     // Iterate through parameterized test cases
-                    var testSuiteParameterizedName = testSuiteParameterizedNode.SelectSingleNode(".//property[@name='Description']")?.Attributes["value"]?.InnerText;
                     var testSuiteParameterizedTestCases = testSuiteParameterizedNode.SelectNodes("./test-case");
                     foreach (XmlNode testSuiteParameterizedTestCase in testSuiteParameterizedTestCases)
                     {
                         // Get parameterized test case name
                         var testCaseParameterizedName = testSuiteParameterizedTestCase.Attributes["name"]?.InnerText;
-                        if (testSuiteParameterizedName != null)
-                        {
-                            try
-                            {
-                                var st = testCaseParameterizedName.IndexOf('(');
-                                var end = testCaseParameterizedName.LastIndexOf(')');
-                                var subName = testCaseParameterizedName.Substring(st, end - st + 1).Replace(",null)", ")");
-                                testCaseParameterizedName = testSuiteParameterizedName + " " + subName;
-                            }
-                            catch (Exception e)
-                            {
-                                // Test case name has no parenthesized params
-                                testCaseParameterizedName = testSuiteParameterizedTestCase.Attributes["name"]?.InnerText;
-                            }
-                        }
 
                         // Get Result and Duration
                         var testCaseParameterizedResult = testSuiteParameterizedTestCase.Attributes["result"]?.InnerText;
