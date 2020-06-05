@@ -234,9 +234,8 @@ namespace TestRail_Nunit_Sync.Controllers
             // Create new Test Run in TestRail
             testRailRunName = testRailRunName + " " + nunitTestRunStartTime.ToString("MM/dd/yyyy hh:mm tt");
             var runId = _testRailApiController.CreateTestRun(testRailRunName, nunitTestCases);
-
-            // Send results to TestRail
             _testRailApiController.AddTestRunResults(runId, nunitTestCases);
+            _testRailApiController.CloseTestRun(runId);
         }
     }
 }

@@ -223,6 +223,12 @@ namespace TestRail_Nunit_Sync.Controllers
             return runId;
         }
 
+        public JObject CloseTestRun(int runId)
+        {
+            var response = (JObject)SendRequest(_testRailApiClient.SendPost, "close_run/" + runId, null);
+            return response;
+        }
+
         public void AddTestRunResults(int runId, List<TestCaseModel> testCases)
         {
             Console.WriteLine("\n\nSubmitting test results to TestRail..");
