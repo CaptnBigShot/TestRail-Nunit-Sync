@@ -56,7 +56,11 @@ namespace TestRail_Nunit_Sync.Controllers
                     var testCaseFailureNode = testCaseNode.SelectSingleNode("./failure");
                     if (testCaseFailureNode != null)
                     {
-                        testCaseFailureMessage = testCaseFailureNode.SelectSingleNode("./message")?.InnerText;
+                        var messageText = testCaseFailureNode.SelectSingleNode("./message")?.InnerText;
+                        var stackTraceText = testCaseFailureNode.SelectSingleNode("./stack-trace")?.InnerText;
+
+                        if (!string.IsNullOrWhiteSpace(messageText)) testCaseFailureMessage += messageText;
+                        if (!string.IsNullOrWhiteSpace(stackTraceText)) testCaseFailureMessage += "\n\n" + stackTraceText;
                     }
 
                     // Get attachments
@@ -120,7 +124,11 @@ namespace TestRail_Nunit_Sync.Controllers
                         var testSuiteParameterizedTestCaseFailureNode = testSuiteParameterizedTestCase.SelectSingleNode("./failure");
                         if (testSuiteParameterizedTestCaseFailureNode != null)
                         {
-                            testSuiteParameterizedTestCasesFailureMessage = testSuiteParameterizedTestCaseFailureNode.SelectSingleNode("./message")?.InnerText;
+                            var messageText = testSuiteParameterizedTestCaseFailureNode.SelectSingleNode("./message")?.InnerText;
+                            var stackTraceText = testSuiteParameterizedTestCaseFailureNode.SelectSingleNode("./stack-trace")?.InnerText;
+
+                            if (!string.IsNullOrWhiteSpace(messageText)) testSuiteParameterizedTestCasesFailureMessage += messageText;
+                            if (!string.IsNullOrWhiteSpace(stackTraceText)) testSuiteParameterizedTestCasesFailureMessage += "\n\n" + stackTraceText;
                         }
 
                         // Get attachments

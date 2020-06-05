@@ -123,7 +123,7 @@ namespace TestRail_Nunit_Sync.Tests
                     {
                         Result = "Failed",
                         Duration = "2217.758296",
-                        ErrorMessage = "Expected something but got something else.",
+                        ErrorMessage = "Expected something but got something else.\n\nstack trace here",
                         Attachments = new List<TestResultAttachmentModel>
                         {
                             new TestResultAttachmentModel
