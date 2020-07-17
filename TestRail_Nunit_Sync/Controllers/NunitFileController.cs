@@ -25,74 +25,24 @@ namespace TestRail_Nunit_Sync.Controllers
                 var fixtureName = testFixtureNode.Attributes["name"]?.InnerText;
                 var testFixtureName = fixtureDesc ?? fixtureName;
                 var fixtureFullName = testFixtureNode.Attributes["fullname"]?.InnerText.Replace($".{fixtureName}", "");
-
-                // Define test categories
-                var fixtureCategories = new List<string>();
-                var fixtureCategoryNodes = testFixtureNode.SelectNodes("./properties/property[@name='Category']");
-                foreach (XmlNode n in fixtureCategoryNodes)
-                    fixtureCategories.Add(n?.Attributes["value"]?.InnerText);
+                var fixtureCategories = GetTestCaseCategories(testFixtureNode);
 
                 // Get test cases (non-parameterized)
                 var testCaseNodes = testFixtureNode.SelectNodes("./test-case");
                 foreach (XmlNode testCaseNode in testCaseNodes)
                 {
-                    // Get test case name
-                    var tcName = testCaseNode.Attributes["name"]?.InnerText;
-                    var testCaseName = tcName;
-
                     // Get categories
-                    var tcCategories = new List<string>();
+                    var tcCategories = GetTestCaseCategories(testCaseNode);
                     tcCategories.AddRange(fixtureCategories);
-                    var tcCategoryNodes = testCaseNode.SelectNodes("./properties/property[@name='Category']");
-                    foreach (XmlNode n in tcCategoryNodes)
-                        tcCategories.Add(n?.Attributes["value"]?.InnerText);
-
-                    // Get result info
-                    var testCaseResult = testCaseNode.Attributes["result"]?.InnerText;
-                    var testCaseDuration = testCaseNode.Attributes["duration"]?.InnerText;
-                    var testCaseFailureMessage = "";
-
-                    // Get failure info if exists
-                    var testCaseFailureNode = testCaseNode.SelectSingleNode("./failure");
-                    if (testCaseFailureNode != null)
-                    {
-                        var messageText = testCaseFailureNode.SelectSingleNode("./message")?.InnerText;
-                        var stackTraceText = testCaseFailureNode.SelectSingleNode("./stack-trace")?.InnerText;
-
-                        if (!string.IsNullOrWhiteSpace(messageText)) testCaseFailureMessage += messageText;
-                        if (!string.IsNullOrWhiteSpace(stackTraceText)) testCaseFailureMessage += "\n\n" + stackTraceText;
-                    }
-
-                    // Get attachments
-                    var testCaseResultAttachments = new List<TestResultAttachmentModel>();
-                    var tcAttachmentsNode = testCaseNode.SelectSingleNode("./attachments");
-                    if (tcAttachmentsNode != null)
-                    {
-                        foreach (XmlNode n in tcAttachmentsNode.SelectNodes("./attachment"))
-                        {
-                            testCaseResultAttachments.Add(new TestResultAttachmentModel
-                            {
-                                FilePath = n.SelectSingleNode("./filePath").InnerText,
-                                Description = n.SelectSingleNode("./description")?.InnerText,
-                            });
-                        }
-                    }
 
                     // Create model and add to list
                     var testCase = new TestCaseModel
                     {
                         FixtureName = testFixtureName,
-                        Title = testCaseName,
-                        IsAutomated = tcCategories.Contains("automated"),
+                        Title = GetTestCaseName(testCaseNode),
                         Tags = string.Join(",", tcCategories),
                         FixtureFullName = fixtureFullName,
-                        TestResult = new TestResultModel
-                        {
-                            Result = testCaseResult,
-                            Duration = testCaseDuration,
-                            ErrorMessage = testCaseFailureMessage,
-                            Attachments = testCaseResultAttachments,
-                        }
+                        TestResult = GetTestResult(testCaseNode)
                     };
                     testCases.Add(testCase);
                 }
@@ -102,86 +52,50 @@ namespace TestRail_Nunit_Sync.Controllers
                 foreach (XmlNode testSuiteParameterizedNode in testSuiteParameterizedNodes)
                 {
                     // Get categories
-                    var tcpCategories = new List<string>();
+                    var tcpCategories = GetTestCaseCategories(testSuiteParameterizedNode);
                     tcpCategories.AddRange(fixtureCategories);
-                    var tcpCategoryNodes = testSuiteParameterizedNode.SelectNodes("./properties/property[@name='Category']");
-                    foreach (XmlNode tcPropertyNode in tcpCategoryNodes)
-                        tcpCategories.Add(tcPropertyNode?.Attributes["value"]?.InnerText);
 
                     // Iterate through parameterized test cases
                     var testSuiteParameterizedTestCases = testSuiteParameterizedNode.SelectNodes("./test-case");
                     foreach (XmlNode testSuiteParameterizedTestCase in testSuiteParameterizedTestCases)
                     {
-                        // Get parameterized test case name
-                        var testCaseParameterizedName = testSuiteParameterizedTestCase.Attributes["name"]?.InnerText;
-
-                        // Get Result and Duration
-                        var testCaseParameterizedResult = testSuiteParameterizedTestCase.Attributes["result"]?.InnerText;
-                        var testCaseParameterizedDuration = testSuiteParameterizedTestCase.Attributes["duration"]?.InnerText;
-
-                        // Get failure info if exists
-                        var testSuiteParameterizedTestCasesFailureMessage = "";
-                        var testSuiteParameterizedTestCaseFailureNode = testSuiteParameterizedTestCase.SelectSingleNode("./failure");
-                        if (testSuiteParameterizedTestCaseFailureNode != null)
-                        {
-                            var messageText = testSuiteParameterizedTestCaseFailureNode.SelectSingleNode("./message")?.InnerText;
-                            var stackTraceText = testSuiteParameterizedTestCaseFailureNode.SelectSingleNode("./stack-trace")?.InnerText;
-
-                            if (!string.IsNullOrWhiteSpace(messageText)) testSuiteParameterizedTestCasesFailureMessage += messageText;
-                            if (!string.IsNullOrWhiteSpace(stackTraceText)) testSuiteParameterizedTestCasesFailureMessage += "\n\n" + stackTraceText;
-                        }
-
-                        // Get attachments
-                        var testCaseParameterizedResultAttachments = new List<TestResultAttachmentModel>();
-                        var testCaseParameterizedAttachmentsNode = testSuiteParameterizedTestCase.SelectSingleNode("./attachments");
-                        if (testCaseParameterizedAttachmentsNode != null)
-                        {
-                            foreach (XmlNode n in testCaseParameterizedAttachmentsNode.SelectNodes("./attachment"))
-                            {
-                                testCaseParameterizedResultAttachments.Add(new TestResultAttachmentModel
-                                {
-                                    FilePath = n.SelectSingleNode("./filePath").InnerText,
-                                    Description = n.SelectSingleNode("./description")?.InnerText,
-                                });
-                            }
-                        }
-
-                        // Create model and add to list
                         var testCaseParameterized = new TestCaseModel
                         {
                             FixtureName = testFixtureName,
-                            Title = testCaseParameterizedName,
-                            IsAutomated = tcpCategories.Contains("automated"),
+                            Title = GetTestCaseName(testSuiteParameterizedTestCase),
                             Tags = string.Join(",", tcpCategories),
                             FixtureFullName = fixtureFullName,
-                            TestResult = new TestResultModel
-                            {
-                                Result = testCaseParameterizedResult,
-                                Duration = testCaseParameterizedDuration,
-                                ErrorMessage = testSuiteParameterizedTestCasesFailureMessage,
-                                Attachments = testCaseParameterizedResultAttachments,
-                            }
+                            TestResult = GetTestResult(testSuiteParameterizedTestCase)
                         };
                         testCases.Add(testCaseParameterized);
                     }
                 }
             }
 
-            // Set the Test Case Type
+            // Final formatting for test cases
             foreach (var t in testCases)
             {
+                // Sort the tags
+                var tags = t.Tags.Split(',').OrderBy(tag => tag).ToList();
+                t.Tags = string.Join(",", tags);
+
+                // Make sure Title doesn't exceed max length in TestRail
+                if (t.Title.Length > 250)
+                    t.Title = t.Title.Substring(0, 250);
+
                 // Case Type
                 TestCaseTypeModel associatedCaseType = null;
-                foreach (var tag in t.Tags.Split(','))
+                foreach (var tag in tags)
                 {
                     associatedCaseType = testCaseTypes.Find(x => x.Name.ToLower().Equals(tag));
                     if (associatedCaseType != null)
                         break;
                 }
-
-                // Set the case type to default if none was found
                 associatedCaseType = associatedCaseType ?? testCaseTypes.First(x => x.IsDefault);
                 t.TypeId = associatedCaseType.Id;
+
+                // Is Automated
+                t.IsAutomated = tags.Contains("automated");
             }
 
             return testCases;
@@ -196,6 +110,59 @@ namespace TestRail_Nunit_Sync.Controllers
             var startTimeText = testRunNode?.Attributes?["start-time"]?.InnerText;
 
             return DateTime.Parse(startTimeText);
+        }
+
+        private static string GetTestCaseName(XmlNode testCaseNode)
+        {
+            return testCaseNode?.Attributes?["name"]?.InnerText;
+        }
+
+        private static List<string> GetTestCaseCategories(XmlNode node)
+        {
+            var categoryNodes = node.SelectNodes("./properties/property[@name='Category']");
+            return (from XmlNode categoryNode in categoryNodes select categoryNode?.Attributes?["value"]?.InnerText).ToList();
+        }
+
+        private static TestResultModel GetTestResult(XmlNode testCaseNode)
+        {
+            // Get Result and Duration
+            var result = testCaseNode.Attributes?["result"]?.InnerText;
+            var duration = testCaseNode.Attributes?["duration"]?.InnerText;
+
+            // Get failure info if exists
+            var failureMessage = "";
+            var failureNode = testCaseNode.SelectSingleNode("./failure");
+            if (failureNode != null)
+            {
+                var messageText = failureNode.SelectSingleNode("./message")?.InnerText;
+                var stackTraceText = failureNode.SelectSingleNode("./stack-trace")?.InnerText;
+
+                if (!string.IsNullOrWhiteSpace(messageText)) failureMessage += messageText;
+                if (!string.IsNullOrWhiteSpace(stackTraceText)) failureMessage += "\n\n" + stackTraceText;
+            }
+
+            // Get attachments
+            var attachments = new List<TestResultAttachmentModel>();
+            var attachmentsNode = testCaseNode.SelectSingleNode("./attachments");
+            if (attachmentsNode != null)
+            {
+                foreach (XmlNode attachmentNode in attachmentsNode.SelectNodes("./attachment"))
+                {
+                    attachments.Add(new TestResultAttachmentModel
+                    {
+                        FilePath = attachmentNode.SelectSingleNode("./filePath")?.InnerText,
+                        Description = attachmentNode.SelectSingleNode("./description")?.InnerText,
+                    });
+                }
+            }
+
+            return new TestResultModel
+            {
+                Result = result,
+                Duration = duration,
+                ErrorMessage = failureMessage,
+                Attachments = attachments,
+            };
         }
     }
 }
